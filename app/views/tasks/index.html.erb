@@ -1,0 +1,21 @@
+
+<h1><%= "My Tasks :" %></h1>
+
+<h2><%= link_to "Add a new task", tasks_new_path %><h2>
+
+
+<% @tasks.each do |task| %>
+  <h4><%= task.title %><h4>
+
+  <%= link_to "More details", task_path(task[:id]) %>
+  <%= link_to "Edit Task", task_edit_path(task[:id]) %>
+  <%= link_to "Delete", task_delete_path(task[:id]),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+
+<hr>
+
+<% end %>
+
+
+
